@@ -1,49 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Calorie Coach</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="container">
 
+  <!-- TITLE -->
   <h1>🍽️ Calorie Coach</h1>
+  <p class="subtitle">Track smart. Stay sharp.</p>
 
   <!-- USER -->
-  <div id="userBox"></div>
+  <div id="userBox" class="glass"></div>
 
   <!-- INPUT -->
-  <div class="input-box">
-    <input id="foodInput" placeholder="What did you eat?" />
+  <div class="input-box glass">
+    <input id="foodInput" placeholder="Type what you ate..." />
     <button id="logBtn">Log</button>
   </div>
 
   <!-- RESPONSE -->
-  <div id="gameResponse"></div>
+  <div id="gameResponse" class="glass">
+    👋 Start by logging your first meal
+  </div>
 
-  <!-- CALORIES -->
-  <div id="totalCalories"></div>
+  <!-- TOTAL CALORIES -->
+  <div id="totalCalories" class="glass">
+    Total: 0 kcal
+  </div>
 
-  <!-- LEVEL -->
-  <div class="level-box">
-    <h3 id="levelTitle"></h3>
-    <p id="levelNumber"></p>
+  <!-- LEVEL SYSTEM -->
+  <div class="level-box glass">
+    <h3 id="levelTitle">🍔 Rookie</h3>
+    <p id="levelNumber">Level 1</p>
 
     <div class="xp-bar">
       <div id="xpFill"></div>
     </div>
 
-    <p id="xpText"></p>
+    <p id="xpText">0 / 100 XP</p>
   </div>
 
   <!-- MISSIONS -->
-  <div id="missions"></div>
+  <div id="missions" class="glass">
+    🎯 Mission: Stay within your calorie target today
+  </div>
 
-  <!-- COACH -->
-  <div id="coachStatus"></div>
+  <!-- COACH STATUS -->
+  <div id="coachStatus" class="glass">
+    🧠 Coach: Waiting for your input...
+  </div>
+
+  <!-- INSIGHTS -->
+  <div class="insights-box glass">
+    📊 Insights will appear after a few logs
+  </div>
 
 </div>
 
+<!-- SCRIPTS -->
 <script src="foodDatabase.js"></script>
 <script src="xp.js"></script>
 <script src="coach.js"></script>
