@@ -2,64 +2,47 @@
 <html>
 <head>
   <meta charset="UTF-8">
-
-  <!-- FONT FIX -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
   <title>Calorie Coach</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
     <h1>🍽️ Calorie Coach</h1>
     <p>Track smart. Stay sharp.</p>
   </div>
 
-  <!-- USER -->
   <div id="userBox" class="card"></div>
 
-  <!-- INPUT -->
   <div class="card input-card">
-    <input id="foodInput" placeholder="Type your meal (e.g. 2 eggs + biryani)" />
-    <button id="logBtn">Log Meal</button>
+    <input id="foodInput" placeholder="2 eggs + biryani" />
+    <button id="logBtn">Log</button>
   </div>
 
-  <!-- GRID DASHBOARD -->
   <div class="grid">
-
-    <!-- CALORIES -->
     <div class="card">
       <h3>🔥 Calories</h3>
       <div id="totalCalories">0 kcal</div>
     </div>
 
-    <!-- LEVEL -->
-    <div class="card">
-      <h3>🎮 Level</h3>
-      <div id="levelTitle"></div>
-      <div id="levelNumber"></div>
+    <div class="card level-box">
+      <h3 id="levelTitle">🍔 Rookie</h3>
+      <p id="levelNumber">Level 1</p>
 
       <div class="xp-bar">
         <div id="xpFill"></div>
       </div>
 
-      <div id="xpText"></div>
+      <div id="xpText">0 / 100 XP</div>
     </div>
-
   </div>
 
-  <!-- RESPONSE -->
-  <div id="gameResponse" class="card"></div>
-
-  <!-- MISSIONS -->
+  <div id="gameResponse" class="card">Start logging your meals 🍽️</div>
   <div id="missions" class="card"></div>
-
-  <!-- COACH -->
   <div id="coachStatus" class="card"></div>
 
 </div>
