@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Setup - Calorie Coach</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>🚀 Welcome to Calorie Coach</h1>
+  <p class="subtitle">Let’s set up your profile</p>
+
+  <!-- USERNAME -->
+  <label>Username</label>
+  <input type="text" id="username" placeholder="Enter your name" />
+
+  <!-- WEIGHT -->
+  <label>Weight (kg)</label>
+  <input type="number" id="weight" placeholder="e.g. 75" />
+
+  <!-- GOAL -->
+  <label>Goal</label>
+  <select id="goal">
+    <option value="loss">Fat Loss 🔥</option>
+    <option value="maintain">Maintain ⚖️</option>
+    <option value="gain">Muscle Gain 💪</option>
+  </select>
+
+  <!-- ACTIVITY -->
+  <label>Activity Level</label>
+  <select id="activity">
+    <option value="low">Low (sedentary)</option>
+    <option value="medium">Medium (active)</option>
+    <option value="high">High (very active)</option>
+  </select>
+
+  <button id="startBtn">Start Coaching 🎯</button>
+
+</div>
+
+<script src="onboarding.js"></script>
+
+</body>
+</html>
