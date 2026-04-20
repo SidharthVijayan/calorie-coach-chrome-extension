@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+
+  <!-- FONT FIX -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <title>Calorie Coach</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <div class="container">
 
-  <!-- TITLE -->
-  <h1>🍽️ Calorie Coach</h1>
-  <p class="subtitle">Track smart. Stay sharp.</p>
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🍽️ Calorie Coach</h1>
+    <p>Track smart. Stay sharp.</p>
+  </div>
 
   <!-- USER -->
-  <div id="userBox" class="glass"></div>
+  <div id="userBox" class="card"></div>
 
   <!-- INPUT -->
-  <div class="input-box glass">
-    <input id="foodInput" placeholder="Type what you ate..." />
-    <button id="logBtn">Log</button>
+  <div class="card input-card">
+    <input id="foodInput" placeholder="Type your meal (e.g. 2 eggs + biryani)" />
+    <button id="logBtn">Log Meal</button>
+  </div>
+
+  <!-- GRID DASHBOARD -->
+  <div class="grid">
+
+    <!-- CALORIES -->
+    <div class="card">
+      <h3>🔥 Calories</h3>
+      <div id="totalCalories">0 kcal</div>
+    </div>
+
+    <!-- LEVEL -->
+    <div class="card">
+      <h3>🎮 Level</h3>
+      <div id="levelTitle"></div>
+      <div id="levelNumber"></div>
+
+      <div class="xp-bar">
+        <div id="xpFill"></div>
+      </div>
+
+      <div id="xpText"></div>
+    </div>
+
   </div>
 
   <!-- RESPONSE -->
-  <div id="gameResponse" class="glass">
-    👋 Start by logging your first meal
-  </div>
-
-  <!-- TOTAL CALORIES -->
-  <div id="totalCalories" class="glass">
-    Total: 0 kcal
-  </div>
-
-  <!-- LEVEL SYSTEM -->
-  <div class="level-box glass">
-    <h3 id="levelTitle">🍔 Rookie</h3>
-    <p id="levelNumber">Level 1</p>
-
-    <div class="xp-bar">
-      <div id="xpFill"></div>
-    </div>
-
-    <p id="xpText">0 / 100 XP</p>
-  </div>
+  <div id="gameResponse" class="card"></div>
 
   <!-- MISSIONS -->
-  <div id="missions" class="glass">
-    🎯 Mission: Stay within your calorie target today
-  </div>
+  <div id="missions" class="card"></div>
 
-  <!-- COACH STATUS -->
-  <div id="coachStatus" class="glass">
-    🧠 Coach: Waiting for your input...
-  </div>
-
-  <!-- INSIGHTS -->
-  <div class="insights-box glass">
-    📊 Insights will appear after a few logs
-  </div>
+  <!-- COACH -->
+  <div id="coachStatus" class="card"></div>
 
 </div>
 
-<!-- SCRIPTS -->
 <script src="foodDatabase.js"></script>
 <script src="xp.js"></script>
 <script src="coach.js"></script>
