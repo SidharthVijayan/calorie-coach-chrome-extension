@@ -1,4 +1,4 @@
-// Firebase config (YOURS)
+// Firebase Config (YOURS)
 const firebaseConfig = {
   apiKey: "AIzaSyC0J_M3hzdn67OkmxOdB5nXbX7x6TTJ96E",
   authDomain: "calorie-coach-42fd1.firebaseapp.com",
@@ -9,7 +9,7 @@ const firebaseConfig = {
   measurementId: "G-PQG6LZ3QKS"
 };
 
-// Initialize Firebase (OLD STYLE FOR EXTENSIONS)
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // Services
