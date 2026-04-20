@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>Calorie Coach</title>
 
-  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- STYLES -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -15,7 +12,6 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
     <h1>🍽️ Calorie Coach</h1>
     <p>Track smart. Stay sharp.</p>
@@ -37,14 +33,11 @@
 
   <!-- DASHBOARD -->
   <div class="grid">
-
-    <!-- CALORIES -->
     <div class="card">
       <h3>🔥 Calories</h3>
       <div id="totalCalories">0 kcal</div>
     </div>
 
-    <!-- LEVEL -->
     <div class="card level-box">
       <h3 id="levelTitle">🍔 Rookie</h3>
       <p id="levelNumber">Level 1</p>
@@ -55,35 +48,15 @@
 
       <div id="xpText">0 / 100 XP</div>
     </div>
-
   </div>
 
-  <!-- RESPONSE -->
-  <div id="gameResponse" class="card">
-    Start logging your meals 🍽️
-  </div>
-
-  <!-- MISSIONS -->
-  <div id="missions" class="card">
-    🎯 Mission: Stay within calories
-  </div>
-
-  <!-- COACH -->
-  <div id="coachStatus" class="card">
-    🧠 Coach ready
-  </div>
+  <div id="gameResponse" class="card">Start logging 🍽️</div>
+  <div id="missions" class="card"></div>
+  <div id="coachStatus" class="card"></div>
 
 </div>
 
-<!-- 🔥 FIREBASE (CORRECT ORDER - VERY IMPORTANT) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-
-<!-- YOUR FIREBASE CONFIG -->
-<script src="firebase.js"></script>
-
-<!-- YOUR APP LOGIC -->
+<!-- ONLY LOCAL SCRIPTS (NO FIREBASE) -->
 <script src="foodDatabase.js"></script>
 <script src="xp.js"></script>
 <script src="coach.js"></script>
