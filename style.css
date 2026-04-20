@@ -1,0 +1,36 @@
+body {
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+  width: 300px;
+}
+
+.container {
+  padding: 10px;
+}
+
+input {
+  width: 70%;
+}
+
+button {
+  background: #22c55e;
+  border: none;
+  padding: 5px;
+}
+
+.level-box {
+  background: #020617;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.xp-bar {
+  height: 8px;
+  background: #1e293b;
+}
+
+#xpFill {
+  height: 8px;
+  background: #22c55e;
+}
