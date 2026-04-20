@@ -1,114 +1,73 @@
-// INPUT PARSER
+const clickSound = new Audio("sounds/click.mp3");
+const levelUpSound = new Audio("sounds/levelup.mp3");
+
 function parseInput(text) {
   text = text.toLowerCase();
   let total = 0;
 
   for (let food in FOOD_DB) {
     if (text.includes(food)) {
-      let calories = FOOD_DB[food];
-
+      let qty = 1;
       let match = text.match(new RegExp(`(\\d+)\\s*${food}`));
-      let qty = match ? parseInt(match[1]) : 1;
-
-      total += calories * qty;
+      if (match) qty = parseInt(match[1]);
+      total += FOOD_DB[food] * qty;
     }
   }
-
   return total;
 }
 
-// FUN RESPONSES
-function funnyResponse(consumed, target) {
-  if (consumed > target + 500) return "🐷 That escalated quickly.";
-  if (consumed > target) return "😅 Careful… you're crossing the line.";
-  if (consumed < target - 300) return "🔥 Fat is melting!";
-  return "🧘 Perfect balance.";
+function funnyResponse(total, target) {
+  if (total > target + 500) return "🐷 That escalated quickly.";
+  if (total > target) return "😅 Careful...";
+  if (total < target - 300) return "🔥 Fat melting!";
+  return "🧘 Perfect.";
 }
 
-// LOAD USER
-function loadUser() {
-  chrome.storage.local.get(["userProfile", "username"], (data) => {
-    if (!data.userProfile) {
-      window.location.href = "onboarding.html";
-      return;
-    }
-
-    document.getElementById("userBox").innerText =
-      `👤 ${data.username}`;
-  });
-}
-
-// MAIN LOGIC
 document.getElementById("logBtn").addEventListener("click", () => {
-  const input = document.getElementById("foodInput").value;
 
+  clickSound.play();
+
+  const input = document.getElementById("foodInput").value;
   const calories = parseInput(input);
 
-  chrome.storage.local.get(["total", "userProfile"], (data) => {
-    let total = (data.total || 0) + calories;
+  chrome.storage.local.get(["total","userProfile","xp"], (data)=>{
 
-    const { weight, goal, activity } = data.userProfile;
+    let total = (data.total||0) + calories;
+    let oldXP = data.xp || 0;
 
-    const tdee = calculateTDEE(weight, activity);
-    const target = adjustForGoal(tdee, goal);
+    const tdee = calculateTDEE(data.userProfile.weight,data.userProfile.activity);
+    const target = adjustForGoal(tdee,data.userProfile.goal);
 
-    chrome.storage.local.set({ total });
+    chrome.storage.local.set({total});
+    updateXP(total,target);
 
-    updateXP(total, target);
+    chrome.storage.local.get(["xp"],(d)=>{
 
-    document.getElementById("gameResponse").innerText =
-      `+${calories} kcal\n${funnyResponse(total, target)}`;
+      if(Math.floor(d.xp/100) > Math.floor(oldXP/100)){
+        levelUpSound.play();
+        document.querySelector(".level-box").classList.add("level-up");
+        setTimeout(()=>document.querySelector(".level-box").classList.remove("level-up"),600);
+      }
 
-    document.getElementById("totalCalories").innerText =
-      `Total: ${total} kcal`;
+      document.getElementById("gameResponse").innerText =
+        `+${calories} kcal\n${funnyResponse(total,target)}`;
 
-    renderLevel();
-    renderMissions(total, target);
+      document.getElementById("totalCalories").innerText =
+        `${total} kcal`;
+
+      renderLevel();
+    });
   });
 });
 
-// LOAD LEVEL
-function renderLevel() {
-  chrome.storage.local.get(["xp"], (data) => {
-    const xp = data.xp || 0;
-    const level = Math.floor(xp / 100);
-    const currentXP = xp % 100;
-
-    const LEVELS = [
-      "🍔 Rookie",
-      "🥗 Conscious",
-      "🔥 Fat Burner",
-      "💪 Master",
-      "⚡ Beast",
-      "🧠 Ninja",
-      "🏆 Legend"
-    ];
-
-    document.getElementById("levelTitle").innerText =
-      LEVELS[level] || "👑 God";
-
-    document.getElementById("levelNumber").innerText =
-      `Level ${level + 1}`;
-
-    document.getElementById("xpText").innerText =
-      `${currentXP}/100 XP`;
-
-    document.getElementById("xpFill").style.width =
-      `${currentXP}%`;
+function renderLevel(){
+  chrome.storage.local.get(["xp"],(data)=>{
+    const xp = data.xp||0;
+    const lvl = Math.floor(xp/100);
+    document.getElementById("levelTitle").innerText = ["🍔 Rookie","🔥 Burner","💪 Beast","🏆 Legend"][lvl] || "👑 God";
+    document.getElementById("levelNumber").innerText = `Level ${lvl+1}`;
+    document.getElementById("xpText").innerText = `${xp%100}/100 XP`;
+    document.getElementById("xpFill").style.width = `${xp%100}%`;
   });
 }
-
-// MISSIONS
-function renderMissions(total, target) {
-  const div = document.getElementById("missions");
-
-  let mission = total <= target
-    ? "✅ Stay under calories"
-    : "❌ Over target — recover tomorrow";
-
-  div.innerText = `🎯 Mission: ${mission}`;
-}
-
-// INIT
-loadUser();
 renderLevel();
