@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Calorie Coach",
   "version": "2.2.0",
-  "description": "Gamified calorie tracking with premium UI, login, and cloud sync",
+  "description": "Gamified calorie tracking with Google login and smart coaching",
 
   "action": {
     "default_popup": "popup.html",
@@ -17,27 +17,18 @@
   ],
 
   "host_permissions": [
-    "https://*/*",
-    "http://*/*"
+    "https://www.googleapis.com/*"
   ],
 
   "oauth2": {
-    "client_id": "840998585030-8023ao8gd3of8j1gt9kh9c7tmv1f03jp.apps.googleusercontent.com
-",
+    "client_id": "PASTE_YOUR_GOOGLE_CLIENT_ID_HERE",
     "scopes": [
-      "profile",
-      "email"
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
     ]
   },
 
   "background": {
     "service_worker": "background.js"
-  },
-
-  "web_accessible_resources": [
-    {
-      "resources": ["sounds/*"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  }
 }
