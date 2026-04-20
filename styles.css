@@ -1,36 +1,162 @@
+/* 🌌 BACKGROUND */
 body {
-  font-family: Arial;
-  background: #0f172a;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #020617);
   color: white;
-  width: 300px;
+  width: 320px;
 }
 
+/* CONTAINER */
 .container {
-  padding: 10px;
+  padding: 15px;
 }
 
-input {
-  width: 70%;
+/* HEADINGS */
+h1 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-button {
-  background: #22c55e;
-  border: none;
-  padding: 5px;
+h3 {
+  margin: 5px 0;
+  font-size: 14px;
 }
 
-.level-box {
-  background: #020617;
-  padding: 10px;
+.subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+/* 🧊 GLASS CARD */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px;
   margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
+/* FORM */
+label {
+  font-size: 12px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  border: none;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34,197,94,0.4);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* INPUT BOX */
+.input-box {
+  display: flex;
+  gap: 5px;
+}
+
+.input-box input {
+  flex: 1;
+}
+
+/* USER */
+#userBox {
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: #cbd5f5;
+}
+
+/* RESPONSE */
+#gameResponse {
+  animation: fadeIn 0.3s ease;
+}
+
+/* TOTAL */
+#totalCalories {
+  font-weight: bold;
+  color: #4ade80;
+  margin-top: 5px;
+}
+
+/* 🧠 LEVEL BOX */
+.level-box {
+  text-align: center;
+}
+
+/* XP BAR */
 .xp-bar {
-  height: 8px;
-  background: #1e293b;
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 8px 0;
 }
 
 #xpFill {
-  height: 8px;
-  background: #22c55e;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  width: 0%;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+/* MISSIONS */
+#missions {
+  font-size: 13px;
+}
+
+/* COACH */
+#coachStatus {
+  font-size: 13px;
+}
+
+/* INSIGHTS */
+.insights-box {
+  font-size: 12px;
+}
+
+/* ✨ ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
