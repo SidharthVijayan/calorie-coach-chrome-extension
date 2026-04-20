@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Calorie Coach",
+  "version": "2.0.0",
+  "description": "Gamified calorie tracking with AI-like coaching.",
+  
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "permissions": ["storage", "activeTab", "scripting"],
+
+  "host_permissions": ["https://*/*", "http://*/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  }
+}
